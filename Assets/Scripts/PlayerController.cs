@@ -1,0 +1,70 @@
+﻿//copyright ©, Christopher Gough - Whodok Games, 2014
+//Version: 1.0
+//Date Modified: 09/05/2014
+
+using UnityEngine;
+using System.Collections;
+
+public class PlayerController : MonoBehaviour {
+	public float speed = 5.0f;
+	public float jumpPower = 8.0f;
+
+	bool m_left = false;
+	bool m_right = false;
+	bool m_jumping = false;
+	float screenW;
+	float screenH;
+
+	// Use this for initialization
+	void Start () {
+		screenH = Camera.main.orthographicSize * 2.0f;
+		screenW = screenH / Screen.height * Screen.width;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(Input.GetKey("a") || Input.GetKey("left")){
+			m_left = true;
+		}
+
+		if(Input.GetKeyUp("a") || Input.GetKeyUp("left")){
+			m_left = false;
+		}
+
+		if(Input.GetKey("d") || Input.GetKey("right")){
+			m_right = true;
+		}
+		
+		if(Input.GetKeyUp("d") || Input.GetKeyUp("right")){
+			m_right = false;
+		}
+
+		if(Input.GetKey("space") && !m_jumping){
+			m_jumping = true;
+
+			transform.rigidbody2D.AddForce(new Vector2(0.0f, jumpPower*100));
+		}
+
+		Move ();
+	}
+
+	void Move(){
+		Vector3 curPos = transform.localPosition;
+
+		if(m_left && curPos.x > -screenW/2 + transform.localScale.x/2){
+			curPos.x -= Time.deltaTime * speed;
+		}
+
+		if(m_right && curPos.x < screenW/2 - transform.localScale.x/2){
+			curPos.x += Time.deltaTime * speed;
+		}
+
+		transform.localPosition = curPos;
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		if(m_jumping){
+			m_jumping = false;
+		}
+	}
+}
