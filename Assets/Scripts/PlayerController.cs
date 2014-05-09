@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	bool m_left = false;
 	bool m_right = false;
 	bool m_jumping = false;
+	bool m_moving = false;
+
 	float screenW;
 	float screenH;
 
@@ -45,7 +47,15 @@ public class PlayerController : MonoBehaviour {
 			transform.rigidbody2D.AddForce(new Vector2(0.0f, jumpPower*100));
 		}
 
-		Move ();
+		if(!m_left && !m_right){
+			m_moving = false;
+		}else{
+			m_moving = true;
+		}
+
+		if(m_moving){
+			Move ();
+		}
 	}
 
 	void Move(){
@@ -64,7 +74,9 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if(m_jumping){
-			m_jumping = false;
+			if(other.contacts[0].point.y > other.transform.position.y){
+				m_jumping = false;
+			}
 		}
 	}
 }
