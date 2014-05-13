@@ -2,6 +2,12 @@
 //Version: 1.0
 //Date Modified: 11/05/2014
 
+/*
+ * Version 1.0 ----------
+ * + Initial code
+ * 
+ */
+
 using UnityEngine;
 using System.Collections;
 
@@ -19,6 +25,10 @@ public class LevelGen : MonoBehaviour {
 
 	GameObject currentLevel;
 	GameObject oldLevel;
+
+	public void Start(){
+		currentLevel = GameObject.Find("levelRoot");
+	}
 
 	public void SpawnLevel(ERA era){
 		GameObject t_level = null;
