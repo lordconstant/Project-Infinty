@@ -7,6 +7,7 @@ using System.Collections;
 
 public class WorldScript : MonoBehaviour {
 	public float scoreRate = 10;
+	public int lives = 3;
 	public GUIText gameText = null;
 
 	float m_score = 0;
@@ -22,6 +23,10 @@ public class WorldScript : MonoBehaviour {
 
 		if(gameText != null){
 			gameText.text = ((int)m_score).ToString();
+		}
+
+		if(lives < 0){
+			Application.LoadLevel("Game");
 		}
 	}
 }
