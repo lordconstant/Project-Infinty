@@ -27,7 +27,7 @@ public class LevelGen : MonoBehaviour {
 	GameObject oldLevel;
 
 	public void Start(){
-		currentLevel = GameObject.Find("levelRoot");
+		currentLevel = GameObject.Find("testLevel");
 	}
 
 	public void SpawnLevel(ERA era){

@@ -4,7 +4,7 @@
 
 /*
  * Version 1.0 ----------
- * - Initial code
+ * + Initial code
  * 
  */
 

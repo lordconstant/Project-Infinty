@@ -7,10 +7,8 @@
  * + can only be triggered once
  * 
  * Version 1.0 ----------
- * - Initial code
+ * + Initial code
  * 
- * Version 1.1 ----------
- * + can only be triggered once
  */
 
 using UnityEngine;

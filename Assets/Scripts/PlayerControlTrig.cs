@@ -7,7 +7,7 @@
  * + can set whether to enable or disable auto move
  * 
  * Version 1.0 ----------
- * - Initial code
+ * + Initial code
  * 
  */
 
