@@ -1,6 +1,6 @@
 ﻿//copyright ©, Christopher Gough - Whodok Games, 2014
 //Version: 2.0
-//Date Modified: 09/05/2014
+//Date Modified: 16/05/2014
 
 using UnityEngine;
 using System.Collections;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D other){
 		if(m_jumping){
-			if(other.contacts[0].point.y > other.transform.position.y && other.contacts[0].point.x < (other.transform.position.x + (other.collider.renderer.bounds.size.x / 2)) && other.contacts[0].point.x > (other.transform.position.x - (other.collider.renderer.bounds.size.x / 2))){
+			if(other.contacts[0].point.y > other.transform.position.y && other.contacts[0].point.x < (other.transform.position.x + (other.collider.renderer.bounds.size.x / 2) - 0.01) && other.contacts[0].point.x > (other.transform.position.x - (other.collider.renderer.bounds.size.x / 2) + 0.01)){
 				m_jumping = false;
 			}
 		}

@@ -10,10 +10,13 @@ public class ObjectCollision : MonoBehaviour {
 	public bool right = true;
 	public bool top = false;
 	public bool bottom = false;
-	public WorldScript levelScript;
+	public WorldScript levelScript = null;
+
 	// Use this for initialization
 	void Start () {
-	
+		if(!levelScript){
+			levelScript = Camera.main.GetComponent<WorldScript>() as WorldScript;
+		}
 	}
 	
 	// Update is called once per frame
