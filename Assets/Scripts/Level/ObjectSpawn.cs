@@ -19,7 +19,7 @@ public class ObjectSpawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if(Random.value <= spawnRate/100){
-			GameObject t_level = Instantiate(objects[Random.Range(0, objects.Length)], this.transform.position, Quaternion.identity) as GameObject;
+			GameObject t_level = Instantiate(objects[Random.Range(0, objects.Length)], transform.position, Quaternion.identity) as GameObject;
 			t_level.transform.parent = transform;
 		}
 	}
